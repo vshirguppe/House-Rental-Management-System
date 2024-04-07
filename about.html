@@ -1,0 +1,105 @@
+{% extends ('layout.html') %})
+
+{% block head %}
+
+<style>
+
+.head{
+
+ text-align: center;
+ background-repeat:no-repeat;
+ height: 80vh;
+ background-image:linear-gradient(rgba(1, 2, 15, 0.800),rgba(1, 2, 15, 0.800),rgba(1, 2, 15, 0.800),rgba(19, 19, 24, 0.8)),url({{url_for('static', filename='home.jpg')}});
+ background-repeat:no-repeat;
+background-size:cover;  
+}
+
+.head h1{
+font-size: 50px;
+letter-spacing: 1px;
+font-weight: bold;
+text-transform: uppercase;
+font-family: 'Courier New', Courier, monospace;
+color: white;
+
+}
+
+.logo img{
+	margin-right: 20px;
+	float: right;
+	height: 30vh;
+	margin-top: -50px;
+}
+
+
+.about_info{
+  width: 80%;
+  height: 50vh; 
+  margin-left: 10%;
+ 
+}
+
+.about_info .desc p{
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: rgb(5, 5, 43);
+}
+hr{
+  width: 30%;
+  border: 2px solid rgb(15, 1, 41);
+  box-sizing: border-box;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px 1px rgb(142, 142, 206);
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<center>
+  
+<header class="head">
+
+  <div class="logo">
+    <image src="{{url_for('static',filename = 'logo2.png')}}" >
+  </div>
+  
+  
+  <br><br><br><br><br><br><br><br><br><br>
+  <center> <h1>About</h1></center> <br><br><br><br><br><br><br><br><br><br>
+ 
+ </header>
+ <br> <br>
+</center>
+
+<center>
+  <hr>
+  </center>
+<br> <br> <br><br> <br> <br>
+
+  
+<div class="about_info">
+  
+<div class="desc">
+  <p>In today's world people are migrating in large numbers the main reason is to change the living
+    standards, growing needs, educational facilities, industrialization ,
+    etc. <br> In these situation as a person you have to come to city find affordable 
+     accommodation is very hard now a days. <br> <br>
+   So for people or students to get rooms or  flats  according to their need and money we are   designing a web application for it .
+</p>
+</div>
+
+
+
+</div>
+<center>
+<hr>
+</center>
+<br>
+
+
+
+
+{% endblock %}

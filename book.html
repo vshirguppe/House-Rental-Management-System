@@ -1,0 +1,54 @@
+
+
+<head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 4px;
+    width: 500px;
+    height: 300px;
+    margin-top: 150px;
+    background-color: white;
+    margin-bottom: 100px;
+    box-shadow: 2px 2px 3px 4px rgb(71, 61, 61);
+}
+
+.container img{
+    width: 100px;
+}
+
+.container p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.container span{
+    color: rgb(241, 166, 2);
+    text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+    <center>
+        <div class="container"> <br> <br>
+
+            <p>Dear <span>{{session.username}}</span></p>
+<br>
+            <center><img src="{{url_for('static',filename='right (1).png')}}" alt=""></center>
+             <b> <br> <br></b>
+
+
+            <P>You Have Booked <span>Successfully  ! </span> <br> We will send you the  Owner Details</P>
+
+        </div>
+    </center>
+</body>
+

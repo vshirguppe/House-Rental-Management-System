@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        {% block head %}
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+        {% endblock %}
+        <style>
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+	width: 100%;
+	height: 10vh;
+  background: rgb(1, 64, 105) ;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: uppercase;
+
+}
+
+nav .menu{
+	display: flex;
+  float:right;
+}
+
+nav .menu ul{
+	display: flex;
+	list-style: none;
+ 
+  
+}
+
+
+
+nav .menu ul li{
+	width: 110px;
+	margin: 10px;
+	padding: 8px;
+  float: right;
+
+	
+}
+
+  
+nav .menu ul li a{
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	word-break: none;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 18px;
+	font-weight: bold;
+	transition: all 0.7s ease-in-out;
+  
+}
+  
+nav .menu ul li:hover{
+    background: rgb(1, 64, 105);
+   /* background:rgba(2,83,185,1) 100.2%;*/
+justify-content: space-around;
+  border: 2px solid white;
+  border-radius: 25px;
+}
+/*
+.submenu{
+	display:none;
+	transition: all 0.4s;
+}
+  
+nav .menu ul li:hover .submenu
+{
+	display: block;
+	position: absolute;
+	background: rgb(6, 60, 77);
+  background:rgba(2,83,185,1) 100.2%;
+	margin-top: 15px;
+	margin-left: -50px;
+}
+  
+nav .menu ul li:hover .submenu ul{
+	display: block;
+
+  }
+  
+nav .menu ul li:hover .submenu ul li{
+	width: 150px;
+	padding: 10px;
+	text-align: left;
+ 
+  
+}
+.submenu ul li:hover{
+  border: 2px solid white;
+}
+*/
+
+
+footer{
+  background: rgb(1, 64, 105) ;
+ width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 15px;
+  padding: 55px 50px;
+  color: white;
+  display: grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-gap: 8px;
+  align-items: center;
+  
+
+}
+footer .footer-link{
+  margin-top: -80px;
+  margin-left: 20px;
+}
+
+footer .footer-link a{
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  margin-top: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  margin-right: 8px;
+ 
+}
+
+
+.footer-left .footer-adress p{
+font-size: 15px;
+color: white;
+font-family: 'Courier New', Courier, monospace;
+align-content: center;
+}
+
+footer img{
+ margin-top: -70px;
+}
+
+.footer-left{
+  display: inline-block;
+}
+.footer-left .aboutinfo{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+}
+.footer-left .social-links a{
+  color: white;
+  text-decoration: none;
+  font-family: 'Courier New', Courier, monospace;
+float: right;
+  font-size: 15px;
+}
+
+</style>
+
+
+</head>
+<body>
+   
+          <!--naviagation menu bar-->
+
+          <header>
+            <nav>   
+              
+
+              <div class="menu"> 
+      
+                      <ul>
+                        <li class="active"><a href="{{url_for('index')}}">Home</a></li>
+                        <li><a href=" {{url_for('about')}} ">about</a></li>
+                       <!-- <li><a href="#">Rooms</a> 
+                            <div class="submenu">
+                             <ul>
+                      <li><a href="{{url_for('room')}}">Individual Rooms</a></li>
+                      <li><a href="{{url_for('apparment')}}">Appartments</a></li>
+                            </ul>
+                            </div>
+                        </li> --> 
+                        <li><a href="{{url_for('contact_us')}}">contact</a></li>
+
+                       
+                      </ul> 
+                    </div>
+
+                    <nav>
+                    <br>
+                      <div class="menu"> 
+                        
+                        <ul>
+                          {% if 'loggedin' in session %}
+
+                              <li ><a href="#" > {{session.username}}</a></li>
+                          <li ><a href="{{url_for('logout')}}"> Logout</a></li>
+  
+                          {% else %} 
+                          <li style="float: right;"><a href="{{url_for('login')}}"> Login </a></li>
+                          <li><a href="{{url_for('register')}}"> Register </a></li>
+  
+                          {% endif %}
+                        </ul>
+                      </div>
+                    
+              
+                             
+        
+            
+            </nav>
+                    </nav>
+
+      </header>
+      
+    {% block content %}
+    
+    {% endblock %}
+
+    
+      <footer>
+       <div class="footer-left">
+        <image src="{{url_for('static',filename = 'logo2.png')}}" >
+
+          <div class="footer-link">
+            <a href=" {{url_for('index')}} " >Home</a> <br>
+          
+            <a href="{{url_for('contact_us')}}">Contact us</a> <br>
+            <a href="{{url_for('about')}}" >about us</a>
+          </div>
+
+       </div>
+
+       <div class="footer-left">
+       <center>
+        <div class="footer-adress">
+          <p>Ichalkaranji,<br> 416115,<br> Maharashtra,<br> India </p> <br>
+          <p>0231-2462443</p> <br>
+          <p>homerents@99gmail.com</p>
+        </div>
+       </center>
+      </div>
+
+       <div class="footer-left"> 
+       <div class="social-links">
+        <a href="">Vrushabh shirguppe</a> <br> <br>
+        <a href="">88558855885</a> <br> <br>
+        
+       </div>
+      </div>
+      </footer>
+ 
+</body>
+</html>

@@ -1,0 +1,88 @@
+{% extends 'admin_layout.html' %}
+
+{% block head %}
+<style>
+    *{
+         list-style: none;
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+     
+     }
+     
+     .container{
+         width: 50%;
+         height: 200px;
+         border-radius: 03px;
+         margin: 0 auto;
+        
+     }
+ 
+ table ,th,td{
+   width: 800px;
+   margin:auto;
+   padding: 13px;
+   text-align: center;
+   text-transform: capitalize;
+   border: 1px solid gray;
+   border-collapse: collapse;
+   font-family: 'Courier New', Courier, monospace;
+ }
+ th{
+   font-size: 18px;
+ }
+td{
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+ button{
+   width: 150px;
+   height: 40px;
+   box-sizing: border-box;
+   border: none;
+   background-color: rgb(231, 39, 39);
+   border-radius: 4px;
+ }
+ button a{
+   text-decoration: none;
+   font-size: 18px;
+   color: white;
+ }
+ 
+ </style>
+ {% endblock %}
+ 
+ {% block content %}
+ 
+ <div class="container">
+ 
+ 
+   <br> <br> <br> <br>
+  
+   <table>
+     <tr>
+         <th>No</th>
+       <th>Name</th>
+       <th>adress</th>
+       <th>rent</th>
+       <th>Status</th>
+       <th>contact</th>
+       <th>Update Status</th>
+     </tr>
+     {% for row in data %}
+     <tr>
+      <td>{{row[0]}}</td>
+       <td>{{row[5]}}</td>
+       <td>{{row[6]}}</td>
+       <td>{{row[8]}}</td>
+       <td>{{row[15]}}</td>
+       <td>{{row[16]}}</td>
+       <td><button><a href="/update_flats/{{row[0]}}">update</a></button></td>
+     
+     </tr>
+     {% endfor %}
+   </table>
+ </div>
+ 
+ {% endblock %}

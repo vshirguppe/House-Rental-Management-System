@@ -1,0 +1,58 @@
+{% extends 'admin_layout.html' %}
+{% block head %}
+<style>
+   *{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    
+    }
+    
+    .container{
+        width: 50%;
+        height: 200px;
+        border-radius: 03px;
+        margin: 0 auto;
+       
+    }
+
+table ,th,td{
+  width: 800px;
+  margin:auto;
+  padding: 13px;
+  text-align: center;
+  border: 1px solid rgb(201, 185, 185);
+  border-collapse: collapse;
+}
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+  <br> <br> <br> <br>
+  <table>
+    <tr>
+      <th>No</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>E-mail</th>
+    </tr>
+    {% for row in users %}
+    <tr>
+     
+      <td>{{row[0]}}</td>
+      <td>{{row[1]}}</td>
+      <td>{{row[2]}}</td>
+      <td>{{row[3]}}</td>
+    
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

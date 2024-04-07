@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block head%}
+    <style>
+  
+body{
+    background-image:url({{url_for('static', filename='login.jpg')}});
+	background-size:cover;
+
+}
+
+.border{
+    width:400px;
+    margin-top: 50px;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 5px 6px rgb(6, 9, 22);
+    margin-left: 35%;
+    border-radius: 25px;
+    background-color:rgb(6, 60, 77);
+    padding-top: 10px;
+    
+
+}
+
+.logo{
+    align-content: center;
+    height: 20vh;
+    margin-top: -60px;
+}
+
+.logo img{
+    display: block;
+
+
+}
+
+
+button{
+   height: 7vh;
+    width: 80%;
+    background-color:  #adcf15;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border-radius: 25px;
+    font-size: 20px;
+    border: 1px solid hidden;
+    
+}
+
+button a{
+    text-decoration: none;
+    color: white;
+}
+
+button:hover{
+    background:rgb(35, 204, 35);
+}
+
+
+::placeholder{
+    color:  #c6f8c9;
+    font-size: 20px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.word{
+    color: white;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+
+}
+
+.bottom{
+    color: white;
+    font-weight: bold;
+}
+.bottom h1{
+    color: sandybrown;
+    font-family: 'Courier New', Courier, monospace;
+}
+    </style>
+<meta charset="UTF-8">
+<title> Index </title>
+
+{% endblock %}
+
+{% block content %}
+<body></br></br></br></br></br>
+
+<div align="center" class="border">
+
+<h1 class="bottom">
+Hi {{session.username}}!!</br></br> Welcome to the index page...
+</h1></br>
+<button><a href="{{ url_for('logout') }}" class="btn">Logout</a></button>
+<br>
+<br>
+</div>
+
+
+{% endblock %}

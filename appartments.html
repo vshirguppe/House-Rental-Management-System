@@ -1,0 +1,199 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+.cards{
+    width: 30%;
+    margin: 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 2px solid rgb(10, 241, 203);
+    border-radius: 14px;
+    box-shadow: 2px 3px 10px black;
+   
+/*  background: #16A085;*/
+}
+
+.image img{
+    width: 100%;
+    height: 40vh;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+
+.title{
+  padding:  0 20px 20px;
+
+}
+
+.title h3{
+  font-size: 20px;
+ font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  color:black;
+
+}
+
+.title h6{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+
+.value .left{
+  float: left;
+  justify-content: space-between;
+  letter-spacing: 1px;
+  font-size: 18px;
+  padding-bottom:10px;
+  color:black;
+  text-transform: capitalize;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.value .right{
+  justify-content: space-between;
+  letter-spacing: 1px;
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.title p{
+    font-size: 20px;
+  padding-bottom: 20px;
+  color: black;
+  margin-right:118px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.desc{
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 40px;
+  width: 160px;
+  box-shadow:3px 3px 10px 0px rgb(2, 11, 94);
+}
+
+button{
+background:#e4e707;
+border-radius: 40px;
+border: none;
+margin: 3px;
+width:150px;
+color:rgb(2, 11, 94);
+height: 5vh;
+font-weight:bold;
+text-transform: uppercase;
+font-size: 14px;
+font-family: 'Courier New', Courier, monospace;
+}
+
+button a{
+  color: rgb(2, 4, 31);
+	text-decoration: none;
+	font-size: 17px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+button:hover,button a:hover{
+ background: rgb(35, 204, 35);
+ color: rgb(2, 1, 19);
+
+}
+hr{
+  width: 50%;
+margin-left: 25%;
+color: rgb(40, 2, 66);
+border-radius: 4px;
+height: 1x;
+box-shadow: 2px 3px 10px 0px rgb(53, 53, 189);
+}
+
+.right h6{
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #05ea28;
+  font-weight: bold;
+  text-transform: capitalize;
+
+}
+</style>
+
+{%endblock%}
+
+
+        {% block content %}
+        <body>
+          {% for row in appart %}
+          <div class="cards">
+              <div class="image">
+                  <img src="{{url_for('static',filename=''+row[1])}}" alt="">
+      
+              </div>
+      
+              <div class="title">
+                  <h3>Owner : {{ row[5] }}</h3>
+                  
+            
+                  <h6> Address :  {{ row[6] }} </h6> 
+      
+                  <div class="value"> <br>
+              
+                      <div class="left">
+           
+                       Area :  {{ row[7] }}
+         
+                     </div>
+         
+                      <div class="right">
+         
+                        Rent:{{ row[8] }}
+         
+                      </div>
+        
+                  </div> 
+                  
+                  <div class="value">
+                    <div class="right">
+
+                    {% if row[15] == "available" %}
+                      <h6>{{ row[15] }}</h6>
+                        {% else %}
+                        <h6 style="color:red"> {{row[15]}} </h6>
+                        {% endif %}
+         
+                      </div>
+                  </div>
+      
+                  <p>Type:{{ row[9] }}</p>
+                 
+      
+      <hr>
+      
+              </div>
+      <center>
+              <div class="desc">
+                <button type="button" name="button"><a   href="/appartment_last1/{{row[0]}}">more details</a></button>
+                 
+              </div>
+          </center> <br>
+          </div>
+      
+      
+      
+      </body>
+      {% endfor %}
+
+                    {% endblock %}
+
+
+                   

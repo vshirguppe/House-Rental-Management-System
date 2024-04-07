@@ -1,0 +1,135 @@
+<html>
+
+
+    <head>
+        {% block head %}
+    
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        
+            {% endblock %}
+
+       <style>
+/* heading effects */
+*{
+    padding: 0;
+    margin: 0;
+}
+.heading{
+    background:orange;
+    height: 15vh;
+}
+.heading .user_name p{
+    margin-left: 280px;
+    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;   
+}
+
+
+       /* dashboard menu bar*/
+
+
+section{
+    width: 250px;
+	background:rgb(5, 23, 29);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    text-decoration: none;
+    margin-top: -300px;
+	text-transform: uppercase;
+}
+.logo img{
+    height: 28vh;
+    margin-top: -25px;
+}
+.dash_menu{
+    display: flex;
+} 
+section .dash_menu ul{
+	list-style: none;
+}
+
+section .dash_menu ul li{
+	width: 110px;
+	margin: 10px;
+	padding: 13px;
+	margin-top: 10px;
+}
+
+section .dash_menu ul li a{
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	word-break: none;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 18px;
+	font-weight: bold;
+	transition: all 0.7s ease-in-out;
+}
+
+section .dash_menu ul li a select option{
+    border: none;
+}
+
+section .dash_menu ul li:hover{
+  border: 1px solid rgb(224, 219, 219);
+	width: 100%;
+    color: black;
+  border-radius: 25px;
+}
+
+
+       </style> 
+    </head>
+
+<body>
+
+   
+    <div class="heading">
+        <div class="user_name"> <br><br><br>
+            <p>Welcome to Dashboard {{session.username}} </p>
+        </div>
+
+    </div>
+    {% block  content %}
+    {% endblock %}
+
+        <section>
+            
+            <div class="dash_menu">
+
+             
+                <ul>   <div class="logo">
+                    <image src="{{url_for('static',filename = 'logo2.png')}}">
+                  </div> <br> <br> <br>
+                    <li class="active"><a href="{{url_for('dash')}}">Users</a></li>
+                    <li><a href="{{url_for('admin_appartment_details')}}">Appartments</a></li>
+                    <li><a href="{{url_for('admin_room_details')}}">Rooms</a></li>
+                   
+                    <li><a href="{{url_for('admin_feedback')}}">contacts</a></li>
+                    <li><a href="{{url_for('bookings')}}">Bookings</a></li>
+                    <li><a href="{{url_for('report')}}">report</a></li>
+                     <br><br><br><br><br><br><br><br><br><br>  <br><br><br>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+           
+            </div>
+            
+           
+        </section>
+    
+
+   
+
+   
+    
+ 
+
+</body>
+
+</html>

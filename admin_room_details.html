@@ -1,0 +1,291 @@
+{% extends 'admin_layout.html' %}
+
+{% block head %}
+
+<style>
+    *{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    
+    }
+    
+    .container{
+        width: 50%;
+        height: 200px;
+        border-radius: 03px;
+        margin: 0 auto;
+       
+    }
+
+    .container p{
+        font-size: 40px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-shadow: 2px 1px gray;
+        color: rgb(58, 3, 185);
+    }
+    
+    
+    .form_wrap{
+        margin-top: 35px;
+    }
+    
+    .form_wrap .input_wrap{
+        margin-bottom: 15px;
+    }
+    
+    .form_wrap .input_wrap:last-child{
+        margin-bottom: 0;
+    }
+    
+    .form_wrap .input_wrap label{
+        display: block;
+        margin-bottom: 3px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 18px;
+        font-weight: bold;
+    
+    }
+
+
+ 
+    
+    .form_wrap .input_grp{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .form_wrap .input_grp input,select,option{
+       width: 300px;
+        height: 35px;
+        border: 1px solid gray;
+        border-radius: 4px;
+        outline: none;
+    
+    }
+
+       
+.form_wrap .input_grp input[type=text],textarea
+{
+    color:rgb(1, 5, 20);
+    font-size: 18px;
+  
+    background:transparent;
+    font-family: 'Courier New', Courier, monospace;
+   
+}
+
+.form_wrap .input_grp input[type=files]{
+    border: 1px solid black;
+    width: 20px;
+}
+
+::placeholder{
+    color:  #030c04;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    
+    font-family: 'Courier New', Courier, monospace;
+}
+    .form_wrap .input_grp select{
+        appearance: 1px;
+    }
+    
+    .form_wrap .input_grp textarea{
+        width: 300px;
+        height: 60px;
+         border: 1px solid gray;
+        border-radius: 4px;
+        outline: none;
+    
+    }
+
+.btn{
+   height: 7vh;
+    width: 20%;
+    background-color:  #e4e707;
+    color: rgb(2, 4, 31);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    outline: none;
+    border-radius: 40px;
+    font-size: 20px;
+    border: none;
+    letter-spacing: 2px;
+
+}
+.btn a{
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn:hover{
+    background:rgb(35, 204, 35);
+    color: rgb(2, 4, 31);
+}
+
+ </style>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+
+    <br> <p>Room.....</p>
+    <div><button class="btn"><a href="{{url_for('admin_room_data')}}">update</a></button></div>
+
+    <form action="{{ url_for('admin_room_details') }}" method='POST'>
+       
+  
+
+<div class="form_wrap">
+    <div class="input_grp">
+        <div class="input_wrap">
+            <label>Owner Name</label>
+            <input type="text" name="owner">
+        </div>
+
+        <div class="input_wrap">
+            <label>Size</label>
+            <input  type="text"name="size" id="size">
+        </div>
+
+    </div>
+
+     <div class="input_grp">
+        <div class="input_wrap">
+            <label>Rent</label>
+            <input  type="text" name="rent" id="rent">
+        </div>
+
+        <div class="input_wrap">
+            <label>Condition</label>
+           <select id="room_condition" name="room_condition">
+            <option></option>
+               <option>Good</option>
+                 <option>Excellent</option>
+           </select>
+        </div>
+
+    </div>
+       
+    <div class="input_grp">
+      
+        <div class="input_wrap">
+           <label>availability</label>
+           <select name="availability" id="availability">
+             
+                <option>available</option>
+                 <option>unavailable</option>
+             
+           </select>
+           
+         
+        </div>
+        <div class="input_wrap">
+            <label>Mobile No</label>
+            <input  type="text" name="contact" id="contact">
+
+          
+       </div>
+
+
+   </div>
+
+     <div class="input_grp">
+        <div class="input_wrap">
+            <label>Adress</label>
+           <textarea id="adress" name="adress"></textarea>
+        </div>
+         <div class="input_wrap">
+            <label>Type</label>
+            <select id="room_type" name="room_type">
+                 <option></option>
+                 <option>Single</option>
+                  <option>Double</option>
+              
+            </select>
+           
+        </div>
+
+
+    </div>
+
+    <div class="input_grp">
+        <div class="input_wrap">
+            <label>Feature</label>
+            <input  type="text" name="feature1" id="feature1">
+        </div>
+
+        <div class="input_wrap">
+            <label>Feature</label>
+            <input  type="text" name="feature2" id="feature2">
+        </div>
+
+    </div>
+
+    <div class="input_grp">
+        <div class="input_wrap">
+            <label>Feature</label>
+            <input  type="text" name="feature3" id="feature3">
+        </div>
+
+        <div class="input_wrap">
+            <label>Feature</label>
+            <input  type="text" name="feature4" id="feature4">
+        </div>
+
+    </div>
+
+
+     <div class="input_grp">
+        <div class="input_wrap">
+            <label>Front</label>
+            <input type="file" name="image1" id="image1">
+        </div>
+
+        <div class="input_wrap">
+            <label>Other</label>
+            <input type="file" name="image2" id="image2">
+        </div>
+
+    </div>
+ 
+
+<br>
+    <center>
+        <input type="submit" class="btn" value="Submit"></br><br> 
+    
+     
+    
+    </center>
+
+
+</div>
+
+    </form>
+  
+
+</div>
+
+
+
+
+
+
+
+
+      
+       
+    
+
+{% endblock %}

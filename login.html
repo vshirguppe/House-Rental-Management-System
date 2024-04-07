@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <style>
+     
+
+.main{
+    height: 100vh;
+    background-image:linear-gradient(rgba(1, 2, 15, 0.800),rgba(1, 2, 15, 0.800),rgba(1, 2, 15, 0.800),rgba(1, 2, 15, 0.800)),url({{url_for('static', filename='login.jpg')}});
+    background-repeat:no-repeat;
+	background-size:cover;
+	
+}
+
+.border{
+    width:700px;
+    box-sizing: content-box;
+    border-radius: 25px;
+   
+    padding-top: 10px;
+
+}
+
+hr{
+
+width: 60%;
+color: rgb(17, 233, 107);
+border-radius: 4px;
+height: 1x;
+box-shadow: 2px 3px 10px rgb(5, 5, 194);
+
+}
+
+.logo{
+    align-content: center;
+    height: 20vh;
+ 
+    margin-top: -60px;
+}
+
+.logo img{
+    display: block;
+
+
+}
+
+.textbox{
+    padding: 12px  ;
+    width: 50%;
+    outline: none;
+    background:transparent;
+    border-radius: 30px;
+    height: 5vh;
+    border: 3px solid orange;
+    
+
+}
+
+.textbox:focus{
+    border:3px solid  #e4e707 ;
+}
+
+
+.textbox[type=text],
+.textbox[type=password]{
+    color:white;
+    font-size: 20px;
+    background:transparent;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+::placeholder{
+    color:  #030c04;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.word{
+    color: white;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+
+}
+.btn {
+    height: 9vh;
+    width: 53%;
+    background-color: #e4e707;
+    color: rgb(2, 4, 31);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    outline: none;
+    border-radius: 40px;
+    font-size: 20px;
+    border: none;
+}
+.btn:hover{
+    background:rgb(35, 204, 35);
+    color: rgb(2, 1, 19);
+}
+.bottom{
+    color: white;
+    font-style: oblique;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+.bottom1,.msg{
+    color: sandybrown;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+}
+
+h1 a{
+    font: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-decoration: none;
+}
+    </style>
+<meta charset="UTF-8">
+<title> Login </title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+    <center>
+        <div class="main"><br><br>
+         
+          
+
+            <div align="center" class="border" >        
+                <div class="logo">
+                    <image src="{{url_for('static',filename = 'logo2.png')}}" >
+                </div> <br>
+        
+                
+    
+                <h1 class="word">Sign in</h1> <br><hr><br> 
+    
+            
+    
+            <form action="{{ url_for('login') }}" method="post">
+                    
+                <div class="msg">{{ msg }}</div>
+    
+                <input id="username" name="username" type="text" placeholder="Username" class="textbox"/></br></br>
+                <input id="password" name="password" type="password" placeholder="Password" class="textbox"/></br></br>
+                <input type="submit" class="btn" value="Log in"></br><br>
+          
+                <hr> <br>
+             <h1 ><a href="  {{url_for('admin')}} ">admin Login</a></h1>
+       </br><br>
+    
+        </form>
+       
+        </h2>
+        <p class="bottom">Dont't have an account? <a class="bottom1" href="{{url_for('register')}}"> Sign Up here</a></p>
+            
+       
+        <br>
+                
+           
+        </div>
+        </div>
+    </center>
+    
+  
+ 
+
+
+
+
+{% endblock %}

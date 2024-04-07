@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Report</title>
+<style>
+.container{
+    box-sizing: border-box;
+    border: 1px solid black;
+    width: 400px;
+    margin-top: 200px;
+    box-shadow: 2px 2px 10px rgb(4, 4, 24);
+}
+.btn{
+    box-sizing: border-box;
+    border: none;
+    width: 300px; 
+    height: 6vh;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background-color: rgb(243, 247, 44);
+
+}
+.p{
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<title>Python Flask File Generate PDF Report from MySQL</title>
+<center>
+<div class="container">
+<form class="form-inline" method="POST" action="{{url_for('.download_report')}}" >
+<div class="form-group">
+<div class="input-group">
+  
+       
+            <br><br>
+<span class="p">Please select</span><br> <br>
+<select name="date_time" class="selectpicker form-control" style="box-sizing: border-box;border-radius: 4px;border: 1px solid gray; height: 35px; width: 300px;">
+      
+  
+{% for data in data %}
+<tr>
+<td>{{data[0]}}</td>
+<option value= "{{data[0]}}" SELECTED>{{data[0]}}</option>"
+</tr>
+{% endfor %}
+</select>
+</div>
+<br><br>
+<button type="submit" class="btn">Print Report</button> <br><br><br>
+</div>
+
+</div>
+
+</form>
+</center>
+
+</body>
+
+</html>
